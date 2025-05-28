@@ -1,0 +1,123 @@
+{
+    "title": "Broadway",
+    "author": "Walt Whitman",
+    "lines": [
+      [
+        {"text": "What", "info": "Anaphora: The repetition of 'What' begins the first four lines, emphasizing the overwhelming nature of Broadway's sights and sounds."},
+        {"text": "hurrying", "info": "Alliteration: Repetition of the 'w' sound in 'What whirls'."},
+        {"text": "human"},
+        {"text": "tides,"},
+        {"text": "or"},
+        {"text": "day"},
+        {"text": "or"},
+        {"text": "night!"}
+      ],
+      [
+        {"text": "What"},
+        {"text": "passions,"},
+        {"text": "winnings,"},
+        {"text": "losses,"},
+        {"text": "ardors,"},
+        {"text": "swim"},
+        {"text": "thy"},
+        {"text": "waters!"}
+      ],
+      [
+        {"text": "What", "info": "Alliteration: Repetition of the 'w' sound in 'What whirls'."},
+        {"text": "whirls", "info": "Alliteration: Repetition of the 'w' sound in 'What whirls'."},
+        {"text": "of"},
+        {"text": "evil,", "info":"contrast."},
+        {"text": "bliss", "info":"contrast."},
+        {"text": "and"},
+        {"text": "sorrow,"},
+        {"text": "stem"},
+        {"text": "thee!"}
+      ],
+      [
+        {"text": "What"},
+        {"text": "curious"},
+        {"text": "questioning"},
+        {"text": "glances—", "info": "Caesura: A pause within a line, often indicated by punctuation (like the em dash here), breaking the rhythmic flow."},
+        {"text": "glints"},
+        {"text": "of"},
+        {"text": "love!"}
+      ],
+      [
+        {"text": "Leer,"},
+        {"text": "envy,"},
+        {"text": "scorn,"},
+        {"text": "contempt,"},
+        {"text": "hope,"},
+        {"text": "aspiration!", "info": "Accumulation/Listing: A list of abstract nouns, rapidly presenting conflicting emotions seen on Broadway."}
+      ],
+      [
+        {"text": "Thou", "info": "Apostrophe & Personification: Addressing Broadway directly ('Thou') as if it were a person capable of hearing."},
+        {"text": "portal—"},
+        {"text": "thou"},
+        {"text": "arena—"},
+        {"text": "thou"},
+        {"text": "of"},
+        {"text": "the"},
+        {"text": "myriad"},
+        {"text": "long-drawn"},
+        {"text": "lines"},
+        {"text": "and"},
+        {"text": "groups!"}
+      ],
+      [
+        {"text": "(Could"},
+        {"text": "but"},
+        {"text": "thy"},
+        {"text": "flagstones,"},
+        {"text": "curbs,"},
+        {"text": "facades,"},
+        {"text": "tell"},
+        {"text": "their"},
+        {"text": "inimitable"},
+        {"text": "tales;"}
+      ],
+      [
+        {"text": "Thy"},
+        {"text": "windows"},
+        {"text": "rich,"},
+        {"text": "and"},
+        {"text": "huge"},
+        {"text": "hotels—"},
+        {"text": "thy"},
+        {"text": "side-walks"},
+        {"text": "wide;)"}
+      ],
+      [
+        {"text": "Thou"},
+        {"text": "of"},
+        {"text": "the"},
+        {"text": "endless"},
+        {"text": "sliding,"},
+        {"text": "mincing,"},
+        {"text": "shuffling"},
+        {"text": "feet!"}
+      ],
+      [
+        {"text": "Thou,"},
+        {"text": "like", "info": "Simile: Explicit comparison using 'like' or 'as'."},
+        {"text": "the"},
+        {"text": "parti-colored"},
+        {"text": "world"},
+        {"text": "itself—"},
+        {"text": "like"},
+        {"text": "infinite,"},
+        {"text": "teeming,"},
+        {"text": "mocking"},
+        {"text": "life!"}
+      ],
+      [
+        {"text": "Thou"},
+        {"text": "visor'd,"},
+        {"text": "vast,"},
+        {"text": "unspeakable"},
+        {"text": "show"},
+        {"text": "and"},
+        {"text": "lesson!"}
+      ]
+    ]
+  }

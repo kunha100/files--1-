@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walt Whitman's Broadway - Interactive</title>
+    <!-- Link to our specific CSS for this page -->
+    <link rel="stylesheet" href="poem.css">
+  </head>
+  <body>
+    <div class="container"> <!-- Optional container for layout -->
+      <h1><em>Broadway</em> by Walt Whitman (Interactive)</h1>
+
+      <div id="intro">
+        <p>Click on highlighted words or phrases below to learn more about the literary devices used in the poem.</p>
+      </div>
+
+      <div id="poem">
+        <!-- Poem text will be inserted here by JavaScript -->
+        Loading poem...
+      </div>
+
+      <hr> <!-- Separator -->
+
+      <div id="info">
+        <!-- Information about clicked elements will appear here -->
+        <p>Click on a highlighted term above.</p>
+        <button id="myButton">Click Me</button>
+      </div>
+    </div> <!-- End container -->
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Include our specific JS for this page -->
+    <script src="poem.js"></script>
+  </body>
+</html>
