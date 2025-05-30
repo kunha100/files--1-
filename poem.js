@@ -55,4 +55,5 @@ $(document).ready(function() {
         $("#poem").html("<p style='color:red;'>Error loading poem data.</p>");
     }); // End of $.getJSON
 
+
 }); // End of $(document).ready()

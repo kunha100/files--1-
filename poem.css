@@ -62,3 +62,9 @@ body {
       border-top: 1px solid #eee;
       margin: 30px 0;
   }
+
+  #map {
+    height: 400px; /* Or any height you prefer */
+    width: 100%;   /* Make it fill the container width */
+    border: 1px solid #ccc; /* Optional: add a border */
+    margin-top: 20px;
