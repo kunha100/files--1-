@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const map = L.map('map').setView([43.688010, -79.394099], 11);
 
     L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.{ext}', {
@@ -10,68 +10,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log("Map initialized.");
 
-    // Embed death data directly to avoid CORS issues
-    const deathData = [
-        {"Age": 45, "Coordinates": [43.713045, -79.411790], "Year": 2006, "Month": 4},
-        {"Age": 15, "Coordinates": [43.763445, -79.490990], "Year": 2006, "Month": 4},
-        {"Age": 45, "Coordniates": [43.715945, -79.353490], "Year": 2006, "Month": 9},
-        {"Age": 45, "Coordniates": [43.760445, -79.386590], "Year": 2007, "Month": 6},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 40, "Coordinates": [43.751145 , -79.306490], "Year": 2007, "Month": 9},
-        {"Age:": 55, "Coordinates": [43.704245, -79.410290], "Year": 2008, "Month": 5},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2008, "Month": 9},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2008, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
-        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+    const cycleDeathData = [
+        { "Age": 45, "Coordinates": [43.713045, -79.411790], "Year": 2006, "Month": 4 },
+        { "Age": 15, "Coordinates": [43.763445, -79.490990], "Year": 2006, "Month": 4 },
+        { "Age": 45, "Coordinates": [43.715945, -79.353490], "Year": 2006, "Month": 9 },
+        { "Age": 45, "Coordinates": [43.760445, -79.386590], "Year": 2007, "Month": 6 },
+        { "Age": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8 },
+        { "Age": 40, "Coordinates": [43.751145, -79.306490], "Year": 2007, "Month": 9 },
+        { "Age": 55, "Coordinates": [43.704245, -79.410290], "Year": 2008, "Month": 5 },
+        { "Age": 50, "Coordinates": [43.697345, -79.498990], "Year": 2008, "Month": 9 },
+        { "Age": 65, "Coordinates": [43.655845, -79.399190], "Year": 2009, "Month": 9 },
+        { "Age": 25, "Coordinates": [43.637945, -79.458990], "Year": 2010, "Month": 9 },
+        { "Age": 60, "Coordinates": [43.638445, -79.392190], "Year": 2010, "Month": 11 },
+        { "Age": 80, "Coordinates": [43.693845, -79.338490], "Year": 2011, "Month": 8 },
+        { "Age": 35, "Coordinates": [43.650645, -79.442990], "Year": 2011, "Month": 11 },
+        { "Age": 15, "Coordinates": [43.767646, -79.189586], "Year": 2012, "Month": 7 },
+        { "Age": 55, "Coordinates": [43.650045, -79.386290], "Year": 2012, "Month": 11 }
 
     ];
-    
-    console.log("Death data loaded:", deathData);
-    
-    // Loop through each entry in the data
-    deathData.forEach(function(entry) {
-        // Handle inconsistencies in the data
-        let coordinates;
-        if (entry.Coordinates) {
-            coordinates = entry.Coordinates;
-        } else if (entry.Coordniates) { // Handle typo in some entries
-            coordinates = entry.Coordniates;
-        }
-        
-        // Only create marker if coordinates are available
-        if (coordinates && coordinates.length === 2) {
-            // Get age (handle inconsistency with "Age:" vs "Age")
-            let age = entry.Age || entry["Age:"] || "Unknown";
-            
-            // Create marker
-            const marker = L.marker(coordinates).addTo(map);
-            
-            // Add popup with information
+
+    console.log("Death data loaded:", cycleDeathData);
+
+    cycleDeathData.forEach(function (entry) {const marker = L.marker(entry.Coordinates).addTo(map);
             marker.bindPopup(`
-                <b>Traffic Death</b><br>
-                Age: ${age}<br>
+                <b>Cyclist Death</b><br>
+                Age: ${entry.Age}<br>
                 Date: ${entry.Month}/${entry.Year}<br>
-                Location: [${coordinates[0].toFixed(6)}, ${coordinates[1].toFixed(6)}]
-            `);
-        }
-    });
-});
+            `)});
+            })
