@@ -1,0 +1,27 @@
+
+.filter-controls {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.filter-controls label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.filter-controls select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#map {
+    height: 400px; /* Or any height you prefer */
+    width: 100%;   /* Make it fill the container width */
+    border: 1px solid #ccc; /* Optional: add a border */
+    margin-top: 20px;
+}

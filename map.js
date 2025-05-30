@@ -1,86 +1,77 @@
-document.addEventListener ('DOMContentLoaded', function() {
-    const map = L.map('map').setView([43.688010 , -74.0060], 12);
+document.addEventListener('DOMContentLoaded', function() {
+    const map = L.map('map').setView([43.688010, -79.394099], 11);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19, // Max zoom level for these tiles
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map); // Add the tile layer to our map instance
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.{ext}', {
+        minZoom: 0,
+        maxZoom: 20,
+        attribution: '&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        ext: 'jpg'
+    }).addTo(map);
 
     console.log("Map initialized.");
 
-    const timesSquareCoords = [40.7580, -73.9855];
-    const timesSquareMarker = L.marker(timesSquareCoords).addTo(map);
+    // Embed death data directly to avoid CORS issues
+    const deathData = [
+        {"Age": 45, "Coordinates": [43.713045, -79.411790], "Year": 2006, "Month": 4},
+        {"Age": 15, "Coordinates": [43.763445, -79.490990], "Year": 2006, "Month": 4},
+        {"Age": 45, "Coordniates": [43.715945, -79.353490], "Year": 2006, "Month": 9},
+        {"Age": 45, "Coordniates": [43.760445, -79.386590], "Year": 2007, "Month": 6},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 40, "Coordinates": [43.751145 , -79.306490], "Year": 2007, "Month": 9},
+        {"Age:": 55, "Coordinates": [43.704245, -79.410290], "Year": 2008, "Month": 5},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2008, "Month": 9},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2008, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
+        {"Age:": 5, "Coordinates": [43.782145, -79.303490], "Year": 2007, "Month": 8},
 
-    timesSquareMarker.bindPopup("<b>Times Square</b><br>Mentioned in Whitman's era context.");
-
-    const gradCenterCoords = [40.7486, -73.9840];
-    const gradCenterMarker = L.marker(gradCenterCoords).addTo(map)
-        .bindPopup("The Graduate Center, CUNY"); 
-
-
-        const circle = L.circle(timesSquareCoords, {
-            color: 'red',       // Outline color
-            fillColor: '#f03',   // Fill color
-            fillOpacity: 0.3,  // Fill transparency (0-1)
-            radius: 500        // Radius in meters
-        }).addTo(map);
-        circle.bindPopup("Approx. 500m radius around Times Square");
-
-
-
-        const linePoints = [
-            timesSquareCoords,  // Start point
-            gradCenterCoords    // End point
-        ];
-
-        const polyline = L.polyline(linePoints, {
-            color: 'blue'       // Line color
-        }).addTo(map);
-        polyline.bindPopup("Line from Times Square to Grad Center");
-
-        const trianglePoints = [
-            [40.7480, -73.9850],
-            [40.7490, -73.9830],
-            [40.7480, -73.9830],
-            [40.7480, -73.9850]];
-
-            const polygon = L.polygon(trianglePoints, {
-                color: 'green',
-                fillColor: '#0f0',
-                fillOpacity: 0.4
-            }).addTo(map);
-            polygon.bindPopup("A sample polygon");
-            
-            map.on('click', function(e) { const coords = e.latlng;
-                const popupContent = `You clicked at:<br>Lat: ${coords.lat.toFixed(4)}<br>Lng: ${coords.lng.toFixed(4)}`; L.popup()
-                .setLatLng(coords) // Set its location
-                .setContent(popupContent) // Set its content
-                .openOn(map); // Open it on the map
-            console.log(`Map clicked at: Lat ${coords.lat}, Lng ${coords.lng}`);
-        });
-
-        map.on('zoomend', function() {
-            console.log("Current map zoom level:", map.getZoom());
-        });
-
-        var greenIcon = L.icon({
-            iconUrl: 'leaf-green.png',
-            shadowUrl: 'leaf-shadow.png',
-        
-            iconSize:     [38, 95], // size of the icon
-            shadowSize:   [50, 64], // size of the shadow
-            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-            shadowAnchor: [4, 62],  // the same for the shadow
-            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-        });
-
-        const momaCoords = [40.7615, -73.9782];
-        const momaMarker = L.marker(momaCoords,{icon: greenIcon}).addTo(map).bindPopup("MOMA, New York"); 
-
-        
-    $("#zoomToNYC").on("click", function() {map.setView([40.7128, -74.0060], 13)})
-
+    ];
     
-
-
-})
+    console.log("Death data loaded:", deathData);
+    
+    // Loop through each entry in the data
+    deathData.forEach(function(entry) {
+        // Handle inconsistencies in the data
+        let coordinates;
+        if (entry.Coordinates) {
+            coordinates = entry.Coordinates;
+        } else if (entry.Coordniates) { // Handle typo in some entries
+            coordinates = entry.Coordniates;
+        }
+        
+        // Only create marker if coordinates are available
+        if (coordinates && coordinates.length === 2) {
+            // Get age (handle inconsistency with "Age:" vs "Age")
+            let age = entry.Age || entry["Age:"] || "Unknown";
+            
+            // Create marker
+            const marker = L.marker(coordinates).addTo(map);
+            
+            // Add popup with information
+            marker.bindPopup(`
+                <b>Traffic Death</b><br>
+                Age: ${age}<br>
+                Date: ${entry.Month}/${entry.Year}<br>
+                Location: [${coordinates[0].toFixed(6)}, ${coordinates[1].toFixed(6)}]
+            `);
+        }
+    });
+});
